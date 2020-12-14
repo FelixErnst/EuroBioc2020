@@ -144,7 +144,7 @@ plotRowTree(x[rowData(x)$Phylum %in% top_phyla,], edge_colour_by = "Phylum",
 
 <div style="text-align: center; font-size: 13;"> **Thoughts? Suggestions?** </div>
 
-## Sessioninfo
+## Bibliography
 
 ```{r, include=FALSE}
 knitr::write_bib(c(.packages(),"phyloseq"),file = "slides.bib")
