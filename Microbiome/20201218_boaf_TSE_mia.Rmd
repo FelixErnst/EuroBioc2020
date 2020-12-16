@@ -31,7 +31,7 @@ The class mainly used for microbiome analysis
   - sequence data
   - tree data
 
-- 11 years in the making
+- 8+ years in the making
 - similarities to `SummarizedExperiment`
 
 [@R-phyloseq]
@@ -186,7 +186,7 @@ plotRowTree(x[rowData(x)$Phylum %in% top_phyla,], edge_colour_by = "Phylum",
 ## Summary
 
 **Contributors:**
-Tuomas Borman, Domenick J. Braccia, Hector Corrada Bravo, Ruizhu Huang, Leo Lathi, Sudarshan A.Shetty
+Tuomas Borman, Domenick J. Braccia, Hector Corrada Bravo, Ruizhu Huang, Leo Lahti, Sudarshan A.Shetty
 
 ### Additonal functions already available:
 
