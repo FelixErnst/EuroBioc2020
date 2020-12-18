@@ -3209,7 +3209,7 @@ slide:not(.current) .plotly.html-widget{
 <li>sequence data</li>
 <li>tree data</li>
 </ul></li>
-<li>8+ years in the making</li>
+<li>8+ years in Bioconductor</li>
 <li>similarities to <code>SummarizedExperiment</code></li>
 </ul>
 
@@ -3230,18 +3230,19 @@ slide:not(.current) .plotly.html-widget{
 
 </article></slide><slide class=""><hgroup><h2>Class structures for microbiome data</h2></hgroup><article  class="smaller " id="class-structures-for-microbiome-data-2">
 
-<p>require one additional data type to match <code>phyloseq</code>: sequencing data</p>
+<p>one additional data type required to match <code>phyloseq</code>: sequencing data</p>
+
+<p>
+
+ 
+
+</p>
 
 <h3>Two options</h3>
 
 <ol>
-<li>Create <code>MicrobiomeExperiment</code> providing the <code>refSeq</code> slot while inheriting from <code>TSE</code></li>
-</ol>
-
-<p>or</p>
-
-<ol>
-<li>Add <code>refSeq</code> slot to <code>TSE</code></li>
+<li>Create <code>MicrobiomeExperiment</code> providing the <code>refSeq</code> slot while inheriting from <code>TreeSummarizedExperiment</code></li>
+<li>Add <code>refSeq</code> slot to <code>TreeSummarizedExperiment</code></li>
 </ol>
 
 <p>
@@ -3250,11 +3251,11 @@ slide:not(.current) .plotly.html-widget{
 
 </p>
 
-<p>Currently this is implemented as 1., but the PR for adding it to <code>TSE</code> is also prepared.</p>
+<p>Currently this is implemented as 1., but the PR for adding it to <code>TreeSummarizedExperiment</code> is also in preparation.</p>
 
 </article></slide><slide class=""><hgroup><h2>Functions for microbiome workflows</h2></hgroup><article  class="smaller build" id="functions-for-microbiome-workflows">
 
-<p>Specific functions for working with microbiome data need to be <strong>added</strong>/<strong>implemented</strong>/<strong>wrapped</strong> to work with <code>TSE</code>.</p>
+<p>Specific functions for working with microbiome data need to be <strong>added</strong>/<strong>implemented</strong>/<strong>wrapped</strong> to work with <code>TreeSummarizedExperiment</code>.</p>
 
 <p>The <code>mia</code> package is the playground for this and PRs are very welcome.</p>
 
@@ -3274,7 +3275,7 @@ taxonomyRanks(se)</pre>
 
 </article></slide><slide class=""><hgroup><h2>Functions for microbiome workflows</h2></hgroup><article  class="smaller " id="functions-for-microbiome-workflows-1">
 
-<p>Specific functions for working with microbiome data need to be <strong>added</strong>/<strong>implemented</strong>/<strong>wrapped</strong> to work with <code>TSE</code>.</p>
+<p>Specific functions for working with microbiome data need to be <strong>added</strong>/<strong>implemented</strong>/<strong>wrapped</strong> to work with <code>TreeSummarizedExperiment</code>.</p>
 
 <p>The <code>mia</code> package is the playground for this and PRs are very welcome.</p>
 
@@ -3289,9 +3290,11 @@ taxonomyRanks(se)</pre>
 
 <pre >## [1]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE</pre>
 
-<pre class = 'prettyprint lang-r'>all(!taxonomyRankEmpty(se, &quot;Species&quot;))</pre>
+<pre class = 'prettyprint lang-r'>head(getTaxonomyLabels(se))</pre>
 
-<pre >## [1] FALSE</pre>
+<pre >## [1] &quot;Class:Thermoprotei&quot;               &quot;Class:Thermoprotei_1&quot;            
+## [3] &quot;Species:Sulfolobusacidocaldarius&quot; &quot;Class:Sd-NA&quot;                     
+## [5] &quot;Class:Sd-NA_1&quot;                    &quot;Class:Sd-NA_2&quot;</pre>
 
 </article></slide><slide class=""><hgroup><h2>Functions for microbiome workflows</h2></hgroup><article  class="smaller " id="functions-for-microbiome-workflows-2">
 
@@ -3358,7 +3361,7 @@ altExpNames(se)</pre>
 
 <h3>Using the taxonomic levels</h3>
 
-<p>Results from different taxonomic levels can be squashed into a <code>TSE</code> using <code>mia::unsplitByRanks</code>.</p>
+<p>Results from different taxonomic levels can be squashed into a <code>TreeSummarizedExperiment</code> using <code>mia::unsplitByRanks</code>.</p>
 
 <pre class = 'prettyprint lang-r'>x &lt;- addTaxonomyTree(unsplitByRanks(se))
 x</pre>

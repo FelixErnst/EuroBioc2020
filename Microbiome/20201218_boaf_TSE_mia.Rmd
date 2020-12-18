@@ -31,7 +31,7 @@ The class mainly used for microbiome analysis
   - sequence data
   - tree data
 
-- 8+ years in the making
+- 8+ years in Bioconductor
 - similarities to `SummarizedExperiment`
 
 [@R-phyloseq]
@@ -53,25 +53,24 @@ library("TreeSummarizedExperiment")
 
 ## Class structures for microbiome data
 
-require one additional data type to match `phyloseq`: sequencing data
+one additional data type required to match `phyloseq`: sequencing data
+
+<p>&nbsp;</p>
 
 ### Two options
 
 1. Create `MicrobiomeExperiment` providing the `refSeq` slot while inheriting 
-from `TSE`
-
-or 
-
-2. Add `refSeq` slot to `TSE`
+from `TreeSummarizedExperiment`
+2. Add `refSeq` slot to `TreeSummarizedExperiment`
 
 <p>&nbsp;</p>
-Currently this is implemented as 1., but the PR for adding it to `TSE` is
-also prepared.
+Currently this is implemented as 1., but the PR for adding it to 
+`TreeSummarizedExperiment` is also in preparation.
 
 ## Functions for microbiome workflows {.build}
 
 Specific functions for working with microbiome data need to be 
-**added**/**implemented**/**wrapped** to work with `TSE`.
+**added**/**implemented**/**wrapped** to work with `TreeSummarizedExperiment`.
 
 The `mia` package is the playground for this and PRs are very welcome.
 
@@ -90,7 +89,7 @@ taxonomyRanks(se)
 ## Functions for microbiome workflows
 
 Specific functions for working with microbiome data need to be 
-**added**/**implemented**/**wrapped** to work with `TSE`.
+**added**/**implemented**/**wrapped** to work with `TreeSummarizedExperiment`.
 
 The `mia` package is the playground for this and PRs are very welcome.
 
@@ -101,7 +100,7 @@ The `mia` package is the playground for this and PRs are very welcome.
 
 ```{r, echo=TRUE, message=FALSE}
 head(taxonomyRankEmpty(se, "Species"))
-all(!taxonomyRankEmpty(se, "Species"))
+head(getTaxonomyLabels(se))
 ```
 
 ## Functions for microbiome workflows
@@ -161,8 +160,8 @@ altExps(se) <-
 
 ### Using the taxonomic levels
 
-Results from different taxonomic levels can be squashed into a `TSE` using
-`mia::unsplitByRanks`.
+Results from different taxonomic levels can be squashed into a 
+`TreeSummarizedExperiment` using `mia::unsplitByRanks`.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE, dpi=72, fig.height=6, fig.width=10}
 x <- addTaxonomyTree(unsplitByRanks(se))
