@@ -11,7 +11,7 @@ docker build -t ebc2020_microbiome .
 Start it ...
 
 ```
-docker run -dit -p 8787:8787 -v D:\Github\:/home/rstudio/GitHub --name ebc2020_microbiome ebc2020_microbiome
+docker run -dit -p 8787:8787 --name ebc2020_microbiome ebc2020_microbiome
 ```
 
 ... and login into the RStudio in your browser at `localhost:8787`
