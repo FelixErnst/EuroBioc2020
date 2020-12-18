@@ -1,4 +1,4 @@
-# EuroBioc2020 - The emerging R ecosystem for microbiome research
+# EuroBioc2020 - Upgrading microbiome research in R/Bioc
 
 ## Docker image
 
